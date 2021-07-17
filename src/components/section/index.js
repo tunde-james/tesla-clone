@@ -5,19 +5,32 @@ import {
   ButtonGroup,
   LeftButton,
   RightButton,
+  DownArrow,
+  Buttons,
 } from "./styles/section"
 
-function Section() {
+function Section({
+  title,
+  description,
+  leftBtnText,
+  rightBtnText,
+  backgoundImg,
+}) {
   return (
-    <Wrap>
+    <Wrap bgImage={backgoundImg}>
       <ItemText>
-        <h1>Model S</h1>
-        <p>Order Online for Touchless Delivery</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
       </ItemText>
-      <ButtonGroup>
-        <LeftButton>Custom Order</LeftButton>
-        <RightButton>Existing Inventory</RightButton>
-      </ButtonGroup>
+
+      <Buttons>
+        <ButtonGroup>
+          <LeftButton>{leftBtnText}</LeftButton>
+          {rightBtnText ? <RightButton>{rightBtnText}</RightButton> : ""}
+        </ButtonGroup>
+
+        <DownArrow src="/images/down-arrow.svg" alt="" />
+      </Buttons>
     </Wrap>
   )
 }
