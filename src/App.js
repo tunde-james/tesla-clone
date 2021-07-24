@@ -7,7 +7,7 @@ import { Header, Home } from "./components"
 function App() {
   return (
     <div className="App">
-      {/* <Header /> */}
+      <Header />
       <Home />
     </div>
   )
