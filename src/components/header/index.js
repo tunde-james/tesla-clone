@@ -32,11 +32,13 @@ function Header() {
       <RightMenu>
         <a href="https://shop.tesla.com/">Shop</a>
         <a href="https://www.tesla.com/teslaaccount">Account</a>
-        <HamburgerMenu onClick={changeBurgerStatus}>Menu</HamburgerMenu>
+        <HamburgerMenu show={burgerStatus} onClick={changeBurgerStatus}>
+          Menu
+        </HamburgerMenu>
       </RightMenu>
 
-      <HamburgerNav show={burgerStatus}>
-        <CloseHamburgerNav>x</CloseHamburgerNav>
+      <HamburgerNav>
+        <CloseHamburgerNav onClick={changeBurgerStatus}>x</CloseHamburgerNav>
 
         <li>
           <a href="https://www.tesla.com/inventory/new/m3">

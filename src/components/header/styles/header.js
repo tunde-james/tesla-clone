@@ -59,7 +59,9 @@ export const HamburgerNav = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  transform: ${({ show }) => (show ? "translateX(0)" : "translateY(100%)")};
+  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
+  transition: transform 0.2s ease-in-out;
+  overflow-y: scroll;
 
   li {
     padding: 0.9375em 0;
