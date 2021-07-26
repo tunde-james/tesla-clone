@@ -1,4 +1,6 @@
 import React, { useState } from "react"
+import { useSelector } from "react-redux"
+import { selectCars } from "../../features/car/carSlice"
 import {
   Container,
   Menu,
@@ -10,6 +12,7 @@ import {
 
 function Header() {
   const { burgerStatus, setBurgerStatus } = useState(false)
+  const cars = useSelector(selectCars)
 
   const changeBurgerStatus = () => {
     setBurgerStatus(!burgerStatus)
@@ -23,10 +26,12 @@ function Header() {
         <img src="/images/logo.svg" alt="Tesla logo" />
       </a>
       <Menu>
-        <a href="https://www.tesla.com/models">Model S</a>
-        <a href="https://www.tesla.com/model3">Model 3</a>
-        <a href="https://www.tesla.com/modelx">Model X</a>
-        <a href="https://www.tesla.com/modely">Model Y</a>
+        {cars &&
+          cars.map((car, index) => (
+            <a key={index} href="https://www.tesla.com/models">
+              {car}
+            </a>
+          ))}
       </Menu>
 
       <RightMenu>
